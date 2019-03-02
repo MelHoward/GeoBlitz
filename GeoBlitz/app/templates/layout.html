@@ -2,13 +2,25 @@
 <html>
   <head>
     <title>Google API Example</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var fir = fireb
+        var config = {
+          apiKey: "fireb",
+          authDomain: "geoblitz.firebaseapp.com",
+          databaseURL: "https://geoblitz.firebaseio.com",
+          projectId: "geoblitz",
+          storageBucket: "geoblitz.appspot.com",
+          messagingSenderId: "908680701848"
+        };
+        firebase.initializeApp(config);
+      </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </head>
   <body>
-    <input type="text" id="query" placeholder="Search for something...">
-    <button id="search">Search</button>
-
     <div id="image"></div>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
@@ -22,11 +34,10 @@
           html, body {
             height: 100%;
             margin: 0;
-            padding: 0;
+            padding: 10%;
           }
         </style>
-      </head>
-      <body>
+
         <div id="map"></div>
         <script>
           var map, infoWindow;
@@ -66,6 +77,7 @@
             infoWindow.open(map);
           }
         </script>
+
         var k = mapkey;
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key={{k}}&callback=initMap">
